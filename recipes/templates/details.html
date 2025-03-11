@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<h1>{{ myrecipe.dish }}</h1>
+<h4>Kuchnia: {{ myrecipe.cuisine }}</h4>
+{% comment 'Problem' %}
+                             Problem z dodawaniem alergenów
+<p>Alergeny: 
+  <ul>
+    {% for x in myrecipe.allergens %}
+      <li>{{ x }}</li>
+    {% endfor %}
+  </ul>
+</p>
+
+{% endcomment %}
+
+<p>Czas przygotowania: {{ myrecipe.preparation_time }} min</p>
+<p>Czas gotowania/pieczenia/smażenia: {{ myrecipe.cooking_time }} min</p>
+<br />
+
+<h2>Składniki:</h2>
+<h4>{{ myrecipe.ingredients }}</h4>
+
+
+<p>Wróc do <a href="/recipes">Przepisów</a></p>
+
+</body>
+</html>

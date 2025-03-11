@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Przepisy</h1>
+  
+<ul>
+  {% for x in myrecipes %}
+    <li><a href="details/{{ x.id }}">{{ x.dish }}</a></li>
+  {% endfor %}
+</ul>
+
+</body>
+</html>
