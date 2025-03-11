@@ -22,7 +22,11 @@
 <br />
 
 <h2>Składniki:</h2>
-<h4>{{ myrecipe.ingredients }}</h4>
+<ul>
+  {% for x in myrecipe.get_ingredients_list %}
+    <li>{{ x }}</li>
+  {% endfor %}
+</ul>
 
 
 <p>Wróc do <a href="/recipes">Przepisów</a></p>

@@ -49,3 +49,9 @@ class Recipe(models.Model):
 
     def __str__(self):
         return self.dish
+    
+    def get_ingredients_list(self):
+        list = []
+        for i in self.ingredients.split(','):
+            list.append(i)
+        return list
