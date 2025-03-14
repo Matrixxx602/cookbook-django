@@ -1,12 +1,15 @@
 {% extends "master.html" %}
 
 {% block title %}
-  Internetowa Książka Kucharska
+  Lista przepisów
 {% endblock %}
 
 
 {% block content %}
-  <h1>Przepisy - najlepsze dania z różnych stron świata</h1>
+  <p><a href="/">HOME</a></p>
+  <br /><br /><br />
+
+  <h1>Przepisy</h1>
 
   <ul>
     {% for x in myrecipes %}
