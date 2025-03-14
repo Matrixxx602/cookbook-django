@@ -1,14 +1,18 @@
-<!DOCTYPE html>
-<html>
-<body>
+{% extends "master.html" %}
 
-<h1>Przepisy</h1>
-  
-<ul>
-  {% for x in myrecipes %}
-    <li><a href="details/{{ x.id }}">{{ x.dish }}</a></li>
-  {% endfor %}
-</ul>
+{% block title %}
+  Internetowa Książka Kucharska
+{% endblock %}
 
-</body>
-</html>
+
+{% block content %}
+  <h1>Przepisy - najlepsze dania z różnych stron świata</h1>
+
+  <ul>
+    {% for x in myrecipes %}
+      <li><h2 style="display: inline;">
+      <a href="details/{{ x.id }}">{{ x.dish }}</h2>
+      (k.{{ x.cuisine }})</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}
