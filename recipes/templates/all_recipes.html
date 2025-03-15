@@ -6,16 +6,15 @@
 
 
 {% block content %}
-  <p><a href="/">HOME</a></p>
-  <br /><br /><br />
+<div class="recipes">
+    <br /><br /><br />
 
-  <h1>Przepisy</h1>
+    <h1>Przepisy</h1>
 
-  <ul>
-    {% for x in myrecipes %}
-      <li><h2 style="display: inline;">
-      <a href="details/{{ x.id }}">{{ x.dish }}</h2>
-      (k.{{ x.cuisine }})</a></li>
-    {% endfor %}
-  </ul>
+    <ul>
+      {% for x in myrecipes %}
+        <li><h2><a href="details/{{ x.id }}">{{ x.dish }}</h2></a></li>
+      {% endfor %}
+    </ul>
+</div>
 {% endblock %}

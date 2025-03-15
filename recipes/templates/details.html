@@ -6,33 +6,70 @@
 
 
 {% block content %}
-  <h1>{{ myrecipe.dish }}</h1>
-  <h4>Kuchnia: {{ myrecipe.cuisine }}</h4>
+  <div class="mycard">
+    <h1>{{ myrecipe.dish }}</h1>
+    <p>Kuchnia: {{ myrecipe.get_cuisine_display }}</p>
 
 
-  {% comment 'Problem' %}
-                              Problem z dodawaniem alergenów
-  <p>Alergeny: 
+    {% comment 'Problem' %}
+                                Problem z dodawaniem alergenów
+    <p>Alergeny: 
+      <ul>
+        {% for x in myrecipe.allergens %}
+          <li>{{ x }}</li>
+        {% endfor %}
+      </ul>
+    </p>
+    {% endcomment %}
+
+
+    <p>Czas przygotowania: {{ myrecipe.preparation_time }} min</p>
+    <p>Czas gotowania/pieczenia/smażenia: {{ myrecipe.cooking_time }} min</p>
+    <br />
+
+    <h2>Składniki:</h2>
     <ul>
-      {% for x in myrecipe.allergens %}
+      {% for x in myrecipe.get_ingredients_list %}
         <li>{{ x }}</li>
       {% endfor %}
     </ul>
-  </p>
-  {% endcomment %}
+    <br />
 
-
-  <p>Czas przygotowania: {{ myrecipe.preparation_time }} min</p>
-  <p>Czas gotowania/pieczenia/smażenia: {{ myrecipe.cooking_time }} min</p>
-  <br />
-
-  <h2>Składniki:</h2>
-  <ul>
-    {% for x in myrecipe.get_ingredients_list %}
-      <li>{{ x }}</li>
-    {% endfor %}
-  </ul>
-  <br /><br />
-  
-  <p>Wróc do <a href="/recipes">Przepisów</a></p>
+    <h2>Wykonanie:</h2>
+    <p><h3>Farsz:</h3>
+      <ul>
+        <li>Zmiel łopatkę. Podsmaż na oleju (10 min).</li>
+        <li>Dodaj posiekaną cebulę i czosnek, smaż 5 min.</li>
+        <li>Pieczarki pokrój, podsmaż na oleju, dodaj do mięsa.</li>
+        <li>Wlej przecier i koncentrat, dopraw przyprawami, gotuj 15 min.</li>
+      </ul>
+      <h3>Sos śmietanowy:</h3>
+        <ul>
+          <li>Wymieszaj śmietanę z mlekiem.</li>
+        </ul>
+      <h3>Sery:</h3>
+        <ul>
+          <li>Zetrzyj mozzarellę i Gouda, wymieszaj.</li>
+        </ul>
+      <h3>Składanie:</h3>
+        <ul>
+          <li>Rozgrzej piekarnik do 180°C.</li>
+          <li>W formie: warstwa farszu, 4 płaty makaronu, farsz, sos, ser. Powtórz 2 razy. Na wierzch: makaron, sos, ser.</li>
+        </ul>
+      <h3>Pieczenie:</h3>
+        <ul>
+          <li>Piecz 30-40 min, aż ser się zarumieni. Odstaw na 5 min.</li>
+        </ul>
+      <h3>Podanie:</h3>
+        <ul>
+          <li>Porcje kroimy nożem i podajemy na talerzach.</li>
+          <li>Opcjonalnie: posyp świeżą bazylią lub natką pietruszki, jeśli masz pod ręką.</li>
+        </ul>
+      <br />
+      <h2>SMACZNEGO!</h2>
+    </p>
+    <br /><br />
+    
+  </div>
+  <p>Spróbuj innych <a href="/recipes">Przepisów</a></p>
 {% endblock %}
