@@ -13,7 +13,7 @@
 
     <ul>
       {% for x in myrecipes %}
-        <li><h2><a href="details/{{ x.id }}">{{ x.dish }}</h2></a></li>
+        <li><a href="details/{{ x.id }}"><h2>{{ x.dish }}</h2></a></li>
       {% endfor %}
     </ul>
 </div>

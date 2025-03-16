@@ -8,7 +8,7 @@
 {% block content %}
   <div class="mycard">
     <h1>{{ myrecipe.dish }}</h1>
-    <p>Kuchnia: {{ myrecipe.get_cuisine_display }}</p>
+    <h4>Kuchnia: {{ myrecipe.get_cuisine_display }}</h4>
 
 
     {% comment 'Problem' %}
@@ -23,8 +23,8 @@
     {% endcomment %}
 
 
-    <p>Czas przygotowania: {{ myrecipe.preparation_time }} min</p>
-    <p>Czas gotowania/pieczenia/smażenia: {{ myrecipe.cooking_time }} min</p>
+    <h4>Czas przygotowania: {{ myrecipe.preparation_time }} min</h4>
+    <h4>Czas gotowania/pieczenia/smażenia: {{ myrecipe.cooking_time }} min</h4>
     <br />
 
     <h2>Składniki:</h2>
@@ -36,7 +36,7 @@
     <br />
 
     <h2>Wykonanie:</h2>
-    <p><h3>Farsz:</h3>
+    <h3>Farsz:</h3>
       <ul>
         <li>Zmiel łopatkę. Podsmaż na oleju (10 min).</li>
         <li>Dodaj posiekaną cebulę i czosnek, smaż 5 min.</li>
@@ -65,11 +65,7 @@
           <li>Porcje kroimy nożem i podajemy na talerzach.</li>
           <li>Opcjonalnie: posyp świeżą bazylią lub natką pietruszki, jeśli masz pod ręką.</li>
         </ul>
-      <br />
       <h2>SMACZNEGO!</h2>
-    </p>
-    <br /><br />
-    
   </div>
-  <p>Spróbuj innych <a href="/recipes">Przepisów</a></p>
+  <h1 style="color: black; text-align: center;">Spróbuj innych <a href="/recipes">Przepisów</a></h1>
 {% endblock %}
