@@ -9,6 +9,7 @@ body {
   font-family: "Just Me Again Down Here", cursive;
   font-weight: 400;
   font-style: normal;
+  font-size: larger;
   letter-spacing: 0.8px;
   color: #375BDC;
 }
@@ -73,4 +74,26 @@ a:hover, a:active {
   text-align: center;
   color:#ffffff;
   margin:20px 0 60px 0;
+}
+.small-img {
+  width: 50px;
+  cursor: pointer;
+  vertical-align: middle;
+}
+.large-img {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  z-index: 1000;
+}
+.large-img.active {
+  display: block;
+  opacity: 1;
 }

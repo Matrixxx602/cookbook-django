@@ -6,33 +6,47 @@
 
 
 {% block content %}
+  {% load static %}
   <div class="mycard">
     <h1>{{ myrecipe.dish }}</h1>
     <h4>Kuchnia: {{ myrecipe.get_cuisine_display }}</h4>
 
+    <h4>Alergeny: 
+      {% for x in myrecipe.allergens.all %}
+        {{ x.number }}{% if not forloop.last %}, {% endif %}
+      {% empty %}
+        Brak alergenów
+      {% endfor %}
+      <img src="{% static 'img/small_allergens.jpg' %}" alt="Miniaturka alergenów" class="small-img" onclick="toggleImage()">
+    </h4>
 
-    {% comment 'Problem' %}
-                                Problem z dodawaniem alergenów
-    <p>Alergeny: 
-      <ul>
-        {% for x in myrecipe.allergens %}
-          <li>{{ x }}</li>
-        {% endfor %}
-      </ul>
-    </p>
-    {% endcomment %}
+    <img src="{% static 'img/allergens.jpg' %}" alt="Legenda alergenów" class="large-img" id="largeImage">
 
+    <script>
+      function toggleImage() {
+          var img = document.getElementById("largeImage");
+          if (img.classList.contains("active")) {
+              img.classList.remove("active");
+          } else {
+              img.classList.add("active");
+          }
+      }
+
+      document.getElementById("largeImage").addEventListener("click", function() {
+          this.classList.remove("active");
+      });
+    </script>
 
     <h4>Czas przygotowania: {{ myrecipe.preparation_time }} min</h4>
     <h4>Czas gotowania/pieczenia/smażenia: {{ myrecipe.cooking_time }} min</h4>
     <br />
 
     <h2>Składniki:</h2>
-    <ul>
-      {% for x in myrecipe.get_ingredients_list %}
-        <li>{{ x }}</li>
-      {% endfor %}
-    </ul>
+      <ul>
+        {% for x in myrecipe.get_ingredients_list %}
+          <li>{{ x }}</li>
+        {% endfor %}
+      </ul>
     <br />
 
     <h2>Wykonanie:</h2>
