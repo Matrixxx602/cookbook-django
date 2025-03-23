@@ -6,6 +6,7 @@
 
 
 {% block content %}
+{% load static %}
 <div class="recipes">
     <br /><br /><br />
 
@@ -13,7 +14,12 @@
 
     <ul>
       {% for x in myrecipes %}
-        <li><a href="details/{{ x.id }}"><h2>{{ x.dish }}</h2></a></li>
+      <a href="details/{{ x.id }}">
+        <li class="recipe-list"> 
+          <img src="{% static 'img/lazania.jpg' %}" alt="Lazania">
+          <h2>{{ x.dish }}</h2>
+        </li>
+      </a>
       {% endfor %}
     </ul>
 </div>

@@ -9,8 +9,9 @@
   {% load static %}
   <div class="mycard">
     <h1>{{ myrecipe.dish }}</h1>
-    <h4>Kuchnia: {{ myrecipe.get_cuisine_display }}</h4>
+    <img src="{% static 'img/lazania.jpg' %}" alt="Lazania" class="main-img">
 
+    <h4>Kuchnia: {{ myrecipe.get_cuisine_display }}</h4>
     <h4>Alergeny: 
       {% for x in myrecipe.allergens.all %}
         {{ x.number }}{% if not forloop.last %}, {% endif %}
@@ -19,9 +20,7 @@
       {% endfor %}
       <img src="{% static 'img/small_allergens.jpg' %}" alt="Miniaturka alergenów" class="small-img" onclick="toggleImage()">
     </h4>
-
     <img src="{% static 'img/allergens.jpg' %}" alt="Legenda alergenów" class="large-img" id="largeImage">
-
     <script>
       function toggleImage() {
           var img = document.getElementById("largeImage");
@@ -31,7 +30,6 @@
               img.classList.add("active");
           }
       }
-
       document.getElementById("largeImage").addEventListener("click", function() {
           this.classList.remove("active");
       });
