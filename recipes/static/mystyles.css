@@ -97,3 +97,16 @@ a:hover, a:active {
   display: block;
   opacity: 1;
 }
+.main-img {
+  width: 100%;
+}
+.recipe-list {
+  display: flex;
+  align-items: center;
+  padding: 10px; 
+}
+.recipe-list img {
+  width: 100px;
+  height: auto;
+  margin-right: 10px;
+}
