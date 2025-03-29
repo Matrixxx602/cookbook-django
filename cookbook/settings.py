@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'cookbook.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'master',
+        'PASSWORD': 'lasagnetop1',
+        'HOST': 'database-recipes.cf28ugiy6vxi.eu-central-1.rds.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
