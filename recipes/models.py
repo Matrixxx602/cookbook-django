@@ -46,6 +46,11 @@ class Recipe(models.Model):
         default=0,
         help_text='Wpisz czas wykonania przepisu w minutach',
     )
+    image = models.ImageField(
+        upload_to='recipes/',
+        null=True,
+        blank=True,
+    )
 
     def __str__(self):
         return self.dish

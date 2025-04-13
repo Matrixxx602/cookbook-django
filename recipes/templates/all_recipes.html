@@ -16,8 +16,12 @@
       {% for x in myrecipes %}
       <a href="details/{{ x.id }}">
         <li class="recipe-list"> 
-          <img src="{% static 'img/lazania.jpg' %}" alt="Lazania">
-          <h2>{{ x.dish }}</h2>
+          {% if x.image %}
+            <img src='/media/{{ x.image }}' alt="{{ x.dish }}">
+          {% else %}
+            <img src="{% static 'img/default.jpg' %}">
+          {% endif %}
+            <h2>{{ x.dish }}</h2>
         </li>
       </a>
       {% endfor %}

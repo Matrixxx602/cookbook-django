@@ -25,7 +25,11 @@ SECRET_KEY = 'django-insecure-46x-m12_enxn993+0hqn&f*1-2le2w3w)*$+pozj03-6abvy(d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [
+    'cookbook.eu-central-1.elasticbeanstalk.com',
+    '127.0.0.1',
+    'localhost'
+]
 
 
 # Application definition
@@ -81,7 +85,7 @@ DATABASES = {
         'NAME': 'postgres',
         'USER': 'master',
         'PASSWORD': 'lasagnetop1',
-        'HOST': 'database-recipes.cf28ugiy6vxi.eu-central-1.rds.amazonaws.com',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
@@ -128,6 +132,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'mystaticfiles'
 ]
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
