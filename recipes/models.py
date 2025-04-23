@@ -51,6 +51,10 @@ class Recipe(models.Model):
         null=True,
         blank=True,
     )
+    instructions_template = models.CharField(
+        max_length=100,
+        blank=True, null=True,
+    )
 
     def __str__(self):
         return self.dish
