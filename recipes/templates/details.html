@@ -9,7 +9,12 @@
   {% load static %}
   <div class="mycard">
     <h1>{{ myrecipe.dish }}</h1>
-    <img src="{% static 'img/lazania.jpg' %}" alt="Lazania" class="main-img">
+    {% if myrecipe.image %}
+      <img class="main-img" src='/media/{{ myrecipe.image }}' alt="{{ myrecipe.dish }}">
+    {% else %}
+      <img class="main-img" src="{% static 'img/default.jpg' %}">
+    {% endif %}
+    
 
     <h4>Kuchnia: {{ myrecipe.get_cuisine_display }}</h4>
     <h4>Alergeny: 
@@ -48,36 +53,14 @@
     <br />
 
     <h2>Wykonanie:</h2>
-    <h3>Farsz:</h3>
-      <ul>
-        <li>Zmiel łopatkę. Podsmaż na oleju (10 min).</li>
-        <li>Dodaj posiekaną cebulę i czosnek, smaż 5 min.</li>
-        <li>Pieczarki pokrój, podsmaż na oleju, dodaj do mięsa.</li>
-        <li>Wlej przecier i koncentrat, dopraw przyprawami, gotuj 15 min.</li>
-      </ul>
-      <h3>Sos śmietanowy:</h3>
-        <ul>
-          <li>Wymieszaj śmietanę z mlekiem.</li>
-        </ul>
-      <h3>Sery:</h3>
-        <ul>
-          <li>Zetrzyj mozzarellę i Gouda, wymieszaj.</li>
-        </ul>
-      <h3>Składanie:</h3>
-        <ul>
-          <li>Rozgrzej piekarnik do 180°C.</li>
-          <li>W formie: warstwa farszu, 4 płaty makaronu, farsz, sos, ser. Powtórz 2 razy. Na wierzch: makaron, sos, ser.</li>
-        </ul>
-      <h3>Pieczenie:</h3>
-        <ul>
-          <li>Piecz 30-40 min, aż ser się zarumieni. Odstaw na 5 min.</li>
-        </ul>
-      <h3>Podanie:</h3>
-        <ul>
-          <li>Porcje kroimy nożem i podajemy na talerzach.</li>
-          <li>Opcjonalnie: posyp świeżą bazylią lub natką pietruszki, jeśli masz pod ręką.</li>
-        </ul>
-      <h2>SMACZNEGO!</h2>
+      {% if myrecipe.instructions_template %}
+        {% include myrecipe.instructions_template %}
+      {% else %}
+        <p>Brak instrukcji dla tego przepisu.</p>
+      {% endif %}
+    <br />
+    
+    <h2>SMACZNEGO!</h2>
   </div>
   <h1 style="color: black; text-align: center;">Spróbuj innych <a href="/recipes">Przepisów</a></h1>
 {% endblock %}

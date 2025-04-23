@@ -3,7 +3,7 @@ from django.template import loader
 from .models import Recipe
 
 def recipes(request):
-    myrecipes = Recipe.objects.all().values()
+    myrecipes = Recipe.objects.all().order_by('id').values()
     template = loader.get_template('all_recipes.html')
     context = {
         'myrecipes': myrecipes,
