@@ -27,8 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'cookbook.eu-central-1.elasticbeanstalk.com',
-    '127.0.0.1',
-    'localhost'
 ]
 
 
@@ -85,7 +83,7 @@ DATABASES = {
         'NAME': 'postgres',
         'USER': 'master',
         'PASSWORD': 'lasagnetop1',
-        'HOST': 'localhost',
+        'HOST': 'cookbook-db.cf28ugiy6vxi.eu-central-1.rds.amazonaws.com',
         'PORT': '5432',
     }
 }
